@@ -45,9 +45,9 @@ jobs:
 #           echo "APK build verification successful."
         
       - name: Upload Build apk to G-Drive
-        uses: Jodebu/upload-to-drive@master
+        uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v1.1.1
         with:
 #           target: /home/runner/work/assessment/assessment/build/app/outputs/flutter-apk/app-release.apk
           target: /home/runner/work/assessment/assessment/README.md
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
-          folder: ${{ secrets.DRIVE_FOLDER_ID }}
+          parent_folder_id: ${{ secrets.DRIVE_FOLDER_ID }}
