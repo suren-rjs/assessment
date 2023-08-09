@@ -14,11 +14,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - uses: flutter/flutter@v2 # Use the Flutter action
-
-      - name: Install dependencies
-        run: flutter pub get
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.2'
+          channel: 'stable'
+      - name: Install Flutter
+      - run: flutter pub get
 
       # Uncomment this step to verify the use of 'flutter format' on each commit.
       # - name: Verify formatting
@@ -30,3 +31,6 @@ jobs:
 
       - name: Run tests
         run: flutter test
+        
+      - name: Build apk
+        run: flutter build apk
