@@ -50,4 +50,4 @@ jobs:
 #           target: /home/runner/work/assessment/assessment/build/app/outputs/flutter-apk/app-release.apk
           target: /home/runner/work/assessment/assessment/README.md
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
-          parent_folder_id: ${{ secrets.DRIVE_FOLDER_ID }}
+          parent_folder_id: 1q8-Zszp00xfmce-fhYIWDVEG86JyAYRI
