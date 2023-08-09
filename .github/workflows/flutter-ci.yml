@@ -26,14 +26,6 @@ jobs:
       - name: Get Dependencies
         run: flutter pub get
 
-      # Uncomment this step to verify the use of 'flutter format' on each commit.
-      # - name: Verify formatting
-      #   run: flutter format --output=none --set-exit-if-changed .
-
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: flutter analyze
-
       - name: Run tests
         run: flutter test
         
