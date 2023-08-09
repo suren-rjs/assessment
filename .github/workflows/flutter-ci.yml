@@ -17,24 +17,39 @@ jobs:
       
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.2'
+          flutter-version: '2.5.2' # Adjust the Flutter version if needed
           channel: 'stable'
           
       - name: Flutter Version
         run: flutter --version
       
-      - name: Get Dependencies
-        run: flutter pub get
+      - name: Print Working Directory
+        run: pwd
+      
+      # - name: Get Dependencies
+      #  run: flutter pub get
+
+      # - name: Build apk
+      #  run: flutter build apk
+        
+      # Add the verification script here
+      - name: Verify APK Build
+        run: |
+          if [ ! -f "build/app/outputs/flutter-apk/app-release.apk" ]; then
+            echo "Error: APK not found at the specified path."
+            exit 1
+          fi
+          echo "APK build verification successful."
 
       - name: Run tests
         run: flutter test
         
-      - name: Build apk
-        run: flutter build apk
-        
-      - name: Upload Build to drive
+      - name: Upload Build to Drive
         uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v1.1.1
         with:
           target: ./build/app/outputs/flutter-apk/app-release.apk
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
           parent_folder_id: ${{ secrets.DRIVE_FOLDER_ID }}
+        env:
+          FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-2.5.2-x64
+          PUB_CACHE: /opt/hostedtoolcache/flutter/stable-2.5.2-x64/.pub-cache
