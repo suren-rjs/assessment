@@ -49,4 +49,4 @@ jobs:
         with:
           target: /home/runner/work/assessment/assessment/build/app/outputs/flutter-apk/app-release.apk
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
-          parent_folder_id: ${{ DRIVE_FOLDER_ID }}
+          parent_folder_id: ${{ secrets.DRIVE_FOLDER_ID }}
