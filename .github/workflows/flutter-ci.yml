@@ -35,6 +35,6 @@ jobs:
       - name: Upload Build to drive
         uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v1.1.1
         with:
-          target: build/app/outputs/flutter-apk/app-release.apk
+          target: ./build/app/outputs/flutter-apk/app-release.apk
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
           parent_folder_id: ${{ secrets.DRIVE_FOLDER_ID }}
