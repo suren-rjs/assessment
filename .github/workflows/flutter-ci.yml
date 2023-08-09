@@ -13,12 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+      
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.7.2'
           channel: 'stable'
-      - name: Install Flutter
-      - run: flutter pub get
+          
+      - name: Flutter Version
+        run: flutter --version
+      
+      - name: Get Dependencies
+        run: flutter pub get
 
       # Uncomment this step to verify the use of 'flutter format' on each commit.
       # - name: Verify formatting
