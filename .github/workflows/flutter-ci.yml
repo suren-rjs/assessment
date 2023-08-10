@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  code-analysis-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,8 @@ jobs:
       - name: Run tests
         run: flutter test
 
-  build:
+  build-and-upload:
+    needs: code-analysis-and-test
     runs-on: ubuntu-latest
 
     steps:
@@ -60,14 +61,6 @@ jobs:
             exit 1
           fi
           echo "APK build verification successful."
-
-  upload:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
       - name: Upload Build apk to G-Drive
         uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v1.1.1
